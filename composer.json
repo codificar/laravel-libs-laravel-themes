@@ -1,0 +1,14 @@
+{
+    "name": "codificar/themes",
+    "description": "Biblioteca para manipular temas.",
+    "authors": [{
+        "name": "Álvaro Tavares",
+        "email": "libs@codificar.com.br"
+    }],
+    "require": { },
+    "autoload": {
+        "psr-4": {
+            "Codificar\\Themes\\": "src/"
+        }
+    }
+}
