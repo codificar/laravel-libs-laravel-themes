@@ -2,7 +2,7 @@
 namespace Codificar\Themes;
 use Illuminate\Support\ServiceProvider;
 
-class GenericServiceProvider extends ServiceProvider {
+class ThemeServiceProvider extends ServiceProvider {
 
     public function boot()
     {
