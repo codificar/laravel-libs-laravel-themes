@@ -15,7 +15,7 @@ Biblioteca para personalizar temas
             "name": "codificar/laravel-themes",
             "version": "master",
             "source": {
-                "url": "https://libs:ofImhksJ@git.codificar.com.br/libs/laravel-themes.git",
+                "url": "https://libs:ofImhksJ@git.codificar.com.br/laravel-libs/laravel-themes.git",
                 "type": "git",
                 "reference": "master"
             }
