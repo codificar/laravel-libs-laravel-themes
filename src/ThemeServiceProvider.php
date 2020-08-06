@@ -11,6 +11,10 @@ class ThemeServiceProvider extends ServiceProvider {
         $this->loadViewsFrom(__DIR__.'/resources/views', 'themes');
 
         // $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
+
+        $this->publishes([
+            __DIR__ . '../public/js' => public_path('vendor/laravel-themes/js'),
+        ], 'laravel-themes');
     }
 
     public function register()

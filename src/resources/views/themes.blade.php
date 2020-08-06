@@ -19,5 +19,5 @@
 
 <script src="/js/lang.trans/requests,dashboard,setting"> </script>
 <!-- <script src="/js/lang.trans/detail"> </script> -->
-<script src="{{ elixir('js/main.vue.js') }}"> </script>
+<script src="{{asset(mix('app.js', 'vendor/laravel-themes'))}}"> </script>
 @stop
