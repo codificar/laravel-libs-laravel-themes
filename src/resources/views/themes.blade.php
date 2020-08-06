@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-<div id="VueJs">
+<div id="ThemeVue">
 	<theme-list></theme-list>
 </div>
 

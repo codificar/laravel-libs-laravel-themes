@@ -68,14 +68,7 @@ composer dump-autoload -o
             Codificar\Themes\ThemeServiceProvider::class
         ],
 ```
-- Migrate the database tables
-
+- Publish js files
 ```
-php artisan migrate
-```
-
-And finally, start the application by running:
-
-```
-php artisan serve
+php artisan vendor:publish --tag=laravel-themes
 ```
