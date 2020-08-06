@@ -13,11 +13,11 @@ Biblioteca para personalizar temas
         "type": "package",
         "package": {
             "name": "codificar/laravel-themes",
-            "version": "master",
+            "version": "1.0.1",
             "source": {
                 "url": "https://libs:ofImhksJ@git.codificar.com.br/laravel-libs/laravel-themes.git",
                 "type": "git",
-                "reference": "master"
+                "reference": "1.0.1"
             }
         }
     }
