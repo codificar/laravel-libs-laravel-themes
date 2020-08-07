@@ -1,4 +1,5 @@
 window.vue = require('vue');
+import "vue-methods";
 
 require('lodash');
 
