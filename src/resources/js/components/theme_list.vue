@@ -56,18 +56,18 @@ export default {
 <template>
 	<div class="card card-outline-info">
 	<div class="card-header">
-		<h4 class="m-b-0 text-white">{{trans('setting.themes')}}</h4>
+		<h4 class="m-b-0 text-white">{{trans('theme::themes.themes')}}</h4>
 	</div>
 	<div class="card-block">
 		<table class="table">
 			<thead>
-				<th>ID</th>
-				<th>Cor do Tema</th>
-				<th>Cor Primária</th>
-				<th>Cor Secundária</th>
-				<th>Cor do Hover</th>
-				<th>Cor Ativa</th>
-				<th>Ações</th>
+				<th>{{trans('theme::themes.id')}}</th>
+				<th>{{trans('theme::themes.theme_color')}}</th>
+				<th>{{trans('theme::themes.primary_color')}}</th>
+				<th>{{trans('theme::themes.secondary_color')}}</th>
+				<th>{{trans('theme::themes.hover_color')}}</th>
+				<th>{{trans('theme::themes.active_color')}}</th>
+				<th>{{trans('theme::themes.actions')}}</th>
 			</thead>
 			<tbody>
 				<tr v-for="(theme, index) in themes" :key="theme.id">
@@ -79,15 +79,15 @@ export default {
 					<td><color :color="theme.active_color" />{{theme.active_color}}</td>
 					<td>
 						<b-dropdown id="actions-dropdown" text="Ações" variant="primary">
-							<b-dropdown-item @click="applyTheme(theme.id)">Aplicar este tema</b-dropdown-item>
-							<b-dropdown-item v-if="theme.id != 1" @click="openModal(theme)">Editar</b-dropdown-item>
-							<b-dropdown-item v-if="theme.id != 1" @click="erase(index)">Apagar</b-dropdown-item>
+							<b-dropdown-item @click="applyTheme(theme.id)">{{trans('theme::themes.apply')}}</b-dropdown-item>
+							<b-dropdown-item v-if="theme.id != 1" @click="openModal(theme)">{{trans('theme::themes.edit')}}</b-dropdown-item>
+							<b-dropdown-item v-if="theme.id != 1" @click="erase(index)">{{trans('theme::themes.delete')}}</b-dropdown-item>
 						</b-dropdown>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<b-button variant="success" @click="openModal()">Novo</b-button>
+		<b-button variant="success" @click="openModal()">{{trans('theme::themes.new')}}</b-button>
 		<form-theme-modal :show="showModal" :theme="selectedTheme" @hidden="showModal = false" @ok="saveTheme()"></form-theme-modal>
 	</div>
 </div>

@@ -4,22 +4,24 @@ use Illuminate\Support\ServiceProvider;
 
 class ThemeServiceProvider extends ServiceProvider {
 
-    public function boot()
-    {
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+	public function boot()
+	{
+		$this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'themes');
+		$this->loadViewsFrom(__DIR__.'/resources/views', 'themes');
 
-        // $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
+		// $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
 
-        $this->publishes([
-            __DIR__ . '/../public' => public_path('vendor/laravel-themes'),
-        ], 'laravel-themes');
-    }
+		$this->loadTranslationsFrom(__DIR__ . '/translations', 'themes')
 
-    public function register()
-    {
+		$this->publishes([
+			__DIR__ . '/../public' => public_path('vendor/laravel-themes'),
+		], 'laravel-themes');
+	}
 
-    }
+	public function register()
+	{
+
+	}
 }
 ?>

@@ -1,7 +1,7 @@
 <template>
 	<b-modal ref="modal" @hidden="$emit('hidden')" @ok="$emit('ok')">
 		<form>
-			<label for="">Cor do tema</label>
+			<label for="">{{trans('theme::themes.theme_color')}}</label>
 			<b-form-input type="color" v-model="theme.theme_color"></b-form-input>
 			<label for="">Cor primária</label>
 			<b-form-input type="color" v-model="theme.primary_color"></b-form-input>
