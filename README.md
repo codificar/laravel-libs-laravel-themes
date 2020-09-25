@@ -72,3 +72,13 @@ composer dump-autoload -o
 ```
 php artisan vendor:publish --tag=laravel-themes
 ```
+
+- In App\Models\Theme model, add
+``` 
+protected $guarded = ['id'];
+```
+
+Last, add css file to all layout templates, like
+```
+resources/views/layout/master.blade.php
+```

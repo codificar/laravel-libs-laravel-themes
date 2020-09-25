@@ -2,7 +2,7 @@
 
 namespace Codificar\Themes\Http\Controllers;
 
-use App\Http\Requests\SaveThemeFormRequest;
+use Codificar\Themes\Http\Requests\SaveThemeFormRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
