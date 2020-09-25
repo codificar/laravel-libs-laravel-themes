@@ -12,7 +12,7 @@ class ThemeServiceProvider extends ServiceProvider {
 
 		// $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
 
-		$this->loadTranslationsFrom(__DIR__ . '/translations', 'themes')
+		$this->loadTranslationsFrom(__DIR__ . '/translations', 'themes');
 
 		$this->publishes([
 			__DIR__ . '/../public' => public_path('vendor/laravel-themes'),
