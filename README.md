@@ -80,5 +80,6 @@ protected $guarded = ['id'];
 
 Last, add css file to all layout templates, like
 ```
+<link rel="stylesheet" href="/css/theme.css">
 resources/views/layout/master.blade.php
 ```

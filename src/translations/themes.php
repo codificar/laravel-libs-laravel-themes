@@ -10,9 +10,8 @@ return [
 	'active_color'		=> 'Cor Ativa',
 	'actions'			=> 'Ações',
 	'apply'				=> 'Aplicar este tema',
-	'delete'			=> 'Editar',
-	'edit'				=> 'Apagar',
+	'delete'			=> 'Apagar',
+	'edit'				=> 'Editar',
 	'new'				=> 'Novo',
-
 
 ];
