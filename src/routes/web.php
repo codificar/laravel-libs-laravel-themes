@@ -35,7 +35,8 @@ Route::group(['prefix' => 'admin/settings', 'middleware' => 'auth.admin'], funct
 
 Route::get('/js/lang/theme', function(){
     header('Content-Type: text/javascript');
-    $trans = require __DIR__ . '/../translations/'.config('app.locale').'/themes.php';
+    $theme = require __DIR__ . '/../translations/'.config('app.locale').'/themes.php';
+    $trans = ['themes' => $theme];
     return ('window.lang = ' . json_encode($trans) . ';');
     exit();
 });
