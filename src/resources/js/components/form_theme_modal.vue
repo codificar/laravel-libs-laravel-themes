@@ -1,15 +1,15 @@
 <template>
 	<b-modal ref="modal" @hidden="$emit('hidden')" @ok="$emit('ok')">
 		<form>
-			<label for="">{{trans('theme::themes.theme_color')}}</label>
+			<label for="">{{trans('themes.theme_color')}}</label>
 			<b-form-input type="color" v-model="theme.theme_color"></b-form-input>
-			<label for="">{{trans('theme::themes.primary_color')}}</label>
+			<label for="">{{trans('themes.primary_color')}}</label>
 			<b-form-input type="color" v-model="theme.primary_color"></b-form-input>
-			<label for="">{{trans('theme::themes.secondary_color')}}</label>
+			<label for="">{{trans('themes.secondary_color')}}</label>
 			<b-form-input type="color" v-model="theme.secondary_color"></b-form-input>
-			<label for="">{{trans('theme::themes.hover_color')}}</label>
+			<label for="">{{trans('themes.hover_color')}}</label>
 			<b-form-input type="color" v-model="theme.hover_color"></b-form-input>
-			<label for="">{{trans('theme::themes.active_color')}}</label>
+			<label for="">{{trans('themes.active_color')}}</label>
 			<b-form-input type="color" v-model="theme.active_color"></b-form-input>
 		</form>
 	</b-modal>

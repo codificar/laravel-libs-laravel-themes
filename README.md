@@ -17,7 +17,7 @@ Biblioteca para personalizar temas
             "source": {
                 "url": "https://libs:ofImhksJ@git.codificar.com.br/laravel-libs/laravel-themes.git",
                 "type": "git",
-                "reference": "1.0.3"
+                "reference": "1.0.4"
             }
         }
     }

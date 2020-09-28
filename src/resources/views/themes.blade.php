@@ -17,7 +17,7 @@
 	<theme-list></theme-list>
 </div>
 
-<script src="/js/lang.trans/requests,dashboard,setting"> </script>
+<script src="/js/lang/theme"> </script>
 <!-- <script src="/js/lang.trans/detail"> </script> -->
 <script src="{{asset(mix('js/app.js', 'vendor/laravel-themes'))}}"> </script>
 @stop

@@ -31,3 +31,11 @@ Route::group(['prefix' => 'admin/settings', 'middleware' => 'auth.admin'], funct
     Route::post('/theme/apply', ThemeController::class . '@apply')->name('themeApply');
     Route::delete('/theme', ThemeController::class . '@delete')->name('themeDelete');
 });
+
+
+Route::get('/js/lang/theme', function(){
+    header('Content-Type: text/javascript');
+    $trans = require __DIR__ . '/../translations/'.config('app.locale').'/themes.php';
+    return ('window.lang = ' . json_encode($trans) . ';');
+    exit();
+});
