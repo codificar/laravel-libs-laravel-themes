@@ -3,13 +3,13 @@
 		<form>
 			<label for="">{{trans('theme::themes.theme_color')}}</label>
 			<b-form-input type="color" v-model="theme.theme_color"></b-form-input>
-			<label for="">Cor primária</label>
+			<label for="">{{trans('theme::themes.primary_color')}}</label>
 			<b-form-input type="color" v-model="theme.primary_color"></b-form-input>
-			<label for="">Cor secundária</label>
+			<label for="">{{trans('theme::themes.secondary_color')}}</label>
 			<b-form-input type="color" v-model="theme.secondary_color"></b-form-input>
-			<label for="">Cor do hover</label>
+			<label for="">{{trans('theme::themes.hover_color')}}</label>
 			<b-form-input type="color" v-model="theme.hover_color"></b-form-input>
-			<label for="">Cor ativa</label>
+			<label for="">{{trans('theme::themes.active_color')}}</label>
 			<b-form-input type="color" v-model="theme.active_color"></b-form-input>
 		</form>
 	</b-modal>
