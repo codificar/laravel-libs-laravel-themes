@@ -1,6 +1,7 @@
 <script>
 import color from './color';
 import FormThemeModal from './form_theme_modal';
+import axios from 'axios';
 import { BDropdown, BDropdownItem, BButton } from "bootstrap-vue";
 export default {
 	data() {
@@ -19,7 +20,7 @@ export default {
 			this.selectedTheme = theme;
 		},
 		saveTheme() {
-			this.$axios.post('theme/save', this.selectedTheme).then(response => {
+			axios.post('theme/save', this.selectedTheme).then(response => {
 				if(! this.selectedTheme.id) {
 					document.location.reload(true);
 				}
@@ -28,7 +29,7 @@ export default {
 			})
 		},
 		applyTheme(id) {
-			this.$axios.post('theme/apply', {id}).then(response => {
+			axios.post('theme/apply', {id}).then(response => {
 				document.location.reload(true);
 			}).catch(err => {
 				console.log(err)
@@ -36,7 +37,7 @@ export default {
 		},
 		erase(index) {
 			console.log(this.themes[index].id);
-			this.$axios.delete('theme', {params: {id: this.themes[index].id}}).then(response => {
+			axios.delete('theme', {params: {id: this.themes[index].id}}).then(response => {
 				if(response.data.success){
 					this.themes.splice(index, 1);
 				} else {
@@ -46,7 +47,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.$axios.get('themes/list').then(response => {
+		axios.get('themes/list').then(response => {
 			this.themes = response.data;
 		})
 	}
