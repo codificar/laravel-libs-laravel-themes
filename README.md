@@ -13,11 +13,11 @@ Biblioteca para personalizar temas
         "type": "package",
         "package": {
             "name": "codificar/laravel-themes",
-            "version": "1.0.1",
+            "version": "master",
             "source": {
                 "url": "https://libs:ofImhksJ@git.codificar.com.br/laravel-libs/laravel-themes.git",
                 "type": "git",
-                "reference": "1.0.6"
+                "reference": "1.0.8"
             }
         }
     }
@@ -32,7 +32,7 @@ Biblioteca para personalizar temas
 
 ```
 
-- Add 
+- Add
 ```
 
 "autoload": {
@@ -74,7 +74,7 @@ php artisan vendor:publish --tag=laravel-themes
 ```
 
 - In App\Models\Theme model, add
-``` 
+```
 protected $guarded = ['id'];
 ```
 

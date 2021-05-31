@@ -2,6 +2,8 @@
 
 namespace Codificar\Themes\Http;
 
+use Eloquent;
+
 class Theme extends Eloquent {
 
 	protected $table = 'theme';
