@@ -88,10 +88,7 @@ export default {
 				</tr>
 			</tbody>
 		</table>
-		<b-button variant="success" @click="openModal()">{{trans('themes.new')}}</b-button>
-		<form-theme-modal :show="showModal" :theme="selectedTheme" @hidden="showModal = false" @ok="saveTheme()"></form-theme-modal>
 	</div>
-</div>
 </template>
 
 
