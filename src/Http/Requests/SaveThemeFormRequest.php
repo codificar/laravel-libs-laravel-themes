@@ -7,6 +7,8 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
+use Codificar\Themes\Http\Theme;
+
 class SaveThemeFormRequest extends FormRequest
 {
 	/**
@@ -52,7 +54,7 @@ class SaveThemeFormRequest extends FormRequest
 
 	/**
 	 * Retorna um json caso a validação falhe.
-	 * 
+	 *
 	 * @throws HttpResponseException
 	 * @return json
 	 */

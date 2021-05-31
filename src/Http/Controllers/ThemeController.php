@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 
-use Theme; //Assume que o Model existe
+use Codificar\Themes\Http\Theme;
 
 class ThemeController extends Controller
 {
