@@ -21,6 +21,11 @@ class SaveThemeFormRequest extends FormRequest
 		return true;
 	}
 
+	public function getColors()
+	{
+		return [ 'theme_color' , 'primary_color', 'secondary_color', 'hover_color', 'active_color' ];
+	}
+
 	/**
 	 * Get the validation rules that apply to the request.
 	 *

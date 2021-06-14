@@ -14,19 +14,13 @@ export default {
 	components: {
 		color, FormThemeModal, BDropdown, BDropdownItem, BButton
 	},
+	props: {
+		assetUrl: String
+	},
 	methods: {
 		openModal(theme = {}) {
 			this.showModal = true;
 			this.selectedTheme = theme;
-		},
-		saveTheme() {
-			axios.post('theme/save', this.selectedTheme).then(response => {
-				if(! this.selectedTheme.id) {
-					document.location.reload(true);
-				}
-			}).catch(err => {
-				console.log(err)
-			})
 		},
 		applyTheme(id) {
 			axios.post('theme/apply', {id}).then(response => {
@@ -47,9 +41,9 @@ export default {
 		}
 	},
 	mounted() {
-		axios.get('themes/list').then(response => {
-			this.themes = response.data;
-		})
+		//axios.get('themes/list').then(response => {
+			this.themes = [{"id":1,"theme_color":"#","primary_color":"#","secondary_color":"#","hover_color":"#","active_color":"#"},{"id":78,"theme_color":"#e11919","primary_color":"#1d1b1b","secondary_color":"#2b2a93","hover_color":"#9eb918","active_color":"#b8652e"},{"id":80,"theme_color":"#d24b4b","primary_color":"#28268c","secondary_color":"#700f0f","hover_color":"#2c3959","active_color":"#cc8585"}];
+		//})
 	}
 }
 </script>

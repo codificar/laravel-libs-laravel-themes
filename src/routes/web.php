@@ -28,7 +28,7 @@ Route::group(['prefix' => 'admin/settings', 'middleware' => 'auth.admin'], funct
     Route::get('/themes', ThemeController::class . '@index')->name('themeIndex');
     Route::get('/themes/list', ThemeController::class . '@list');
     Route::post('/theme/save', ThemeController::class . '@save')->name('themeSave');
-    Route::post('/theme/images', ThemeController::class . '@saveImages')->name('themeImageSave');
+    //Route::post('/theme/images', ThemeController::class . '@saveImages')->name('themeImageSave');
     Route::post('/theme/apply', ThemeController::class . '@apply')->name('themeApply');
     Route::delete('/theme', ThemeController::class . '@delete')->name('themeDelete');
 });

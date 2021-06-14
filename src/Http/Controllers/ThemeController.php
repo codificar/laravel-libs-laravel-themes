@@ -44,14 +44,8 @@ class ThemeController extends Controller
 		}
 	}
 
-	public function saveImages(Request $request)
+	public function saveImages($theme)
 	{
-		$ps = Theme::all()->count();
-		if ($ps == 0) {
-			$theme = new Theme;
-		} else {
-			$theme = Theme::first();
-		}
 
 		$listImages = [
 			['logo', 'logo'],
@@ -65,7 +59,6 @@ class ThemeController extends Controller
 
 		foreach ($listImages as $image) {
 			if (Input::hasFile($image[0])) {
-				debug($image);
 				$newUrl = null;
 				$newUrl = $this->saveImage($image[0]);
 				if ($newUrl) {
@@ -76,18 +69,18 @@ class ThemeController extends Controller
 		}
 		// Salva as mídias anexadas
 		$theme->save();
-
-		return redirect()->back();
 	}
 
 	public function save(SaveThemeFormRequest $request)
 	{
 		if($request->theme) {
-			if ($request->theme->id == 1) return ['success' => false];
-			$request->theme->fill($request->except(['id', 'theme']));
-			$request->theme->save();
+
+			$request->theme->fill($request->only($request->getColors()));
+			//$request->theme->save();
+			$this->saveImages($request->theme);
 		} else {
-			Theme::create($request->all());
+			$theme = Theme::create($request->only($request->getColors()));
+			$this->saveImages($theme);
 		}
 	}
 
