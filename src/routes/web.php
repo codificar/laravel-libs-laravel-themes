@@ -28,7 +28,6 @@ Route::group(['prefix' => 'admin/settings', 'middleware' => 'auth.admin'], funct
     Route::get('/themes', ThemeController::class . '@index')->name('themeIndex');
     Route::get('/themes/list', ThemeController::class . '@list');
     Route::post('/theme/save', ThemeController::class . '@save')->name('themeSave');
-    //Route::post('/theme/images', ThemeController::class . '@saveImages')->name('themeImageSave');
     Route::post('/theme/apply', ThemeController::class . '@apply')->name('themeApply');
     Route::delete('/theme', ThemeController::class . '@delete')->name('themeDelete');
 });
@@ -37,7 +36,6 @@ Route::group(['prefix' => 'admin/settings', 'middleware' => 'auth.admin'], funct
 Route::get('/js/lang/theme', function(){
     header('Content-Type: text/javascript');
     $theme = require __DIR__ . '/../translations/'.config('app.locale').'/themes.php';
-    $trans = ['themes' => $theme];
-    return ('window.lang = ' . json_encode($trans) . ';');
+    return ('window.lang.themes = ' . json_encode($theme) . ';');
     exit();
 });

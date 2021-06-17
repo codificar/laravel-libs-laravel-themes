@@ -13,6 +13,7 @@ return [
 	'delete'			=> 'Apagar',
 	'edit'				=> 'Editar',
 	'new'				=> 'Novo',
-	'actions'			=> 'Ações'
+	'actions'			=> 'Ações',
+	'choose'			=> 'Escolha uma imagem'
 
 ];

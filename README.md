@@ -17,7 +17,7 @@ Biblioteca para personalizar temas
             "source": {
                 "url": "https://libs:ofImhksJ@git.codificar.com.br/laravel-libs/laravel-themes.git",
                 "type": "git",
-                "reference": "1.0.9"
+                "reference": "1.1.1"
             }
         }
     }
@@ -85,7 +85,7 @@ resources/views/layout/master.blade.php
 ```
 
 
-- Add lang route to debuigbar exceptions in file 'config/debugbar.php'
+- Add lang route to debugbar exceptions in file 'config/debugbar.php'
 'except' => [
     'telescope*', '/js/lang.trans*', 'js/lang/theme'
 ],

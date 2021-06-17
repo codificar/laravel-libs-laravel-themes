@@ -18,7 +18,7 @@
 
 </div>
 
-<script src="/js/lang/theme"> </script>
 <script src="/js/lang.trans/detail,settingTableSeeder,setting"> </script>
+<script src="/js/lang/theme"> </script>
 <script src="{{asset(mix('js/app.js', 'vendor/laravel-themes'))}}"> </script>
 @stop

@@ -19,7 +19,7 @@ class ThemeController extends Controller
 
 	public function list()
 	{
-		return Theme::all(['id', 'theme_color', 'primary_color', 'secondary_color', 'hover_color', 'active_color']);
+		return Theme::all();
 	}
 
 	private function saveImage($inputName)
