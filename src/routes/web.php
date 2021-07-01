@@ -26,10 +26,11 @@ Route::get('/css/public.css', function () {
 
 Route::group(['prefix' => 'admin/settings', 'middleware' => 'auth.admin'], function () {
     Route::get('/themes', ThemeController::class . '@index')->name('themeIndex');
-    Route::get('/themes/list', ThemeController::class . '@list');
-    Route::post('/theme/save', ThemeController::class . '@save')->name('themeSave');
-    Route::post('/theme/apply', ThemeController::class . '@apply')->name('themeApply');
-    Route::delete('/theme', ThemeController::class . '@delete')->name('themeDelete');
+    Route::get('/themes/list', ThemeController::class . '@list')->name('themeList');
+    Route::post('/themes/save', ThemeController::class . '@save')->name('themeSave');
+    Route::post('/themes/apply', ThemeController::class . '@apply')->name('themeApply');
+    Route::delete('/themes', ThemeController::class . '@delete')->name('themeDelete');
+    Route::get('/themes/{theme_id}', ThemeController::class . '@show')->name('themeShow');
 });
 
 

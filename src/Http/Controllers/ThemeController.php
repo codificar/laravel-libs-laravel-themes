@@ -22,6 +22,15 @@ class ThemeController extends Controller
 		return Theme::all();
 	}
 
+	public function show(Request $request, $theme_id)
+	{
+		if($theme_id == 'new') {
+			return view('themes::show', ['theme' => null]);
+		}
+		$theme = Theme::findOrFail($theme_id);
+		return view('themes::show', ['theme' => $theme]);
+	}
+
 	private function saveImage($inputName)
 	{
 		// Upload File

@@ -14,6 +14,7 @@ return [
 	'edit'				=> 'Editar',
 	'new'				=> 'Novo',
 	'actions'			=> 'Ações',
-	'choose'			=> 'Escolha uma imagem'
+	'choose'			=> 'Escolha uma imagem',
+	'save'				=> 'Salvar'
 
 ];

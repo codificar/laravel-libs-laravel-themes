@@ -1,29 +1,23 @@
 <script>
 import color from './color';
-import FormThemeModal from './form_theme_modal';
 import axios from 'axios';
 import { BDropdown, BDropdownItem, BButton } from "bootstrap-vue";
 export default {
 	data() {
 		return {
 			themes: [],
-			selectedTheme: {},
-			showModal: false
 		}
 	},
 	components: {
-		color, FormThemeModal, BDropdown, BDropdownItem, BButton
+		color, BDropdown, BDropdownItem, BButton
 	},
 	props: {
-		assetUrl: String
+		assetUrl: String,
+		baseUrl: String
 	},
 	methods: {
-		openModal(theme = {}) {
-			this.showModal = true;
-			this.selectedTheme = theme;
-		},
 		applyTheme(id) {
-			axios.post('theme/apply', {id}).then(response => {
+			axios.post(this.baseUrl+'/apply', {id}).then(response => {
 				document.location.reload();
 			}).catch(err => {
 				console.log(err)
@@ -31,7 +25,7 @@ export default {
 		},
 		erase(index) {
 			console.log(this.themes[index].id);
-			axios.delete('theme', {params: {id: this.themes[index].id}}).then(response => {
+			axios.delete(this.baseUrl, {params: {id: this.themes[index].id}}).then(response => {
 				if(response.data.success){
 					this.themes.splice(index, 1);
 				} else {
@@ -41,7 +35,7 @@ export default {
 		}
 	},
 	mounted() {
-		axios.get('themes/list').then(response => {
+		axios.get(this.baseUrl + '/list').then(response => {
 			this.themes = response.data
 		})
 	}
@@ -75,15 +69,14 @@ export default {
 						<td>
 							<b-dropdown id="actions-dropdown" :text="trans('themes.actions')" variant="primary">
 								<b-dropdown-item @click="applyTheme(theme.id)">{{trans('themes.apply')}}</b-dropdown-item>
-								<b-dropdown-item @click="openModal(theme)">{{trans('themes.edit')}}</b-dropdown-item>
+								<b-dropdown-item :href="baseUrl+'/'+theme.id">{{trans('themes.edit')}}</b-dropdown-item>
 								<b-dropdown-item @click="erase(index)">{{trans('themes.delete')}}</b-dropdown-item>
 							</b-dropdown>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<b-button variant="success" @click="openModal()">{{trans('themes.new')}}</b-button>
-			<form-theme-modal :asset-url="assetUrl" :show="showModal" :theme="selectedTheme" @hidden="showModal = false"></form-theme-modal>
+			<b-button variant="success" :href="baseUrl+'/new'">{{trans('themes.new')}}</b-button>
 		</div>
 	</div>
 </template>

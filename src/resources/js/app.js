@@ -5,6 +5,7 @@ require('lodash');
 import Vue from 'vue';
 
 import ThemeList from './components/theme_list.vue';
+import FormTheme from './components/form_theme.vue';
 
 //Recupera as configurações definidas em resources/assets/js/settings.php
 Vue.prototype.settings = (key) => {
@@ -62,7 +63,8 @@ new Vue({
 	el: '#ThemeVue',
 
 	components: {
-		ThemeList
+		ThemeList,
+		FormTheme
 	},
 
 	created: function () {

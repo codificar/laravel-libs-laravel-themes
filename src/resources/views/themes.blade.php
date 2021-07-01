@@ -14,7 +14,7 @@
 
 @section('content')
 <div id="ThemeVue">
-	<theme-list :asset-url="'{{asset_url()}}'"></theme-list>
+	<theme-list :asset-url="'{{asset_url()}}'" :base-url="'{{route('themeIndex')}}'"></theme-list>
 
 </div>
 

@@ -14,6 +14,7 @@ return [
 	'edit'				=> 'Edit',
 	'new'				=> 'New',
 	'actions'			=> 'Actions',
-	'choose'			=> 'Choose an image'
+	'choose'			=> 'Choose an image',
+	'save'				=> 'Save',
 
 ];
