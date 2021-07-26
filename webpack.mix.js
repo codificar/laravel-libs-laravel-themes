@@ -15,7 +15,6 @@ const webpack = require('webpack');
 mix.options({})
 	.setPublicPath('public')
 	.js('src/resources/js/app.js', 'public/js')
-	.version()
 	.webpackConfig({
 		resolve: {
 			symlinks: false,
