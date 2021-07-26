@@ -64,6 +64,7 @@ class ThemeController extends Controller
 			['bckSignupCorp', 'background_image_corp_signup'],
 			['bckSignupProvider', 'background_image_provider_signup'],
 			['bckSignupUser', 'background_image_user_signup'],
+			['bckIconApp', 'background_image_icon_app']
 		];
 
 		foreach ($listImages as $image) {
