@@ -15,6 +15,7 @@
 		<image-preview :imageUrl="getUrl(theme.logo)" :label="trans('setting.logo')" fieldName="logo" :trans="{choose: 'Escolha uma imagem'}" @update="onUploadFiles"/>
 		<image-preview :imageUrl="getUrl(theme.favicon)" :label="trans('setting.icon')" fieldName="icon" :trans="{choose: 'Escolha uma imagem'}" @update="onUploadFiles"/>
 		<image-preview :imageUrl="getUrl(theme.background_image_home_signup)" :label="trans('setting.back_image_signup_application_home')" fieldName="bckSignupHome" :trans="{choose: 'Escolha uma imagem'}" @update="onUploadFiles"/>
+		<image-preview :imageUrl="getUrl(theme.background_image_admin_signup)" :label="trans('setting.back_image_signup_application_admin')" fieldName="bckSignupAdmin" :trans="{choose: 'Escolha uma imagem'}" @update="onUploadFiles"/>
 		<image-preview :imageUrl="getUrl(theme.background_image_corp_signup)" :label="trans('setting.back_image_signup_application_corp')" fieldName="bckSignupCorp" :trans="{choose: 'Escolha uma imagem'}" @update="onUploadFiles"/>
 		<image-preview :imageUrl="getUrl(theme.background_image_provider_signup)" :label="trans('setting.back_image_signup_application_provider')" fieldName="bckSignupProvider" :trans="{choose: 'Escolha uma imagem'}" @update="onUploadFiles"/>
 		<image-preview :imageUrl="getUrl(theme.background_image_user_signup)" :label="trans('setting.back_image_signup_application_user')" fieldName="bckSignupUser" :trans="{choose: 'Escolha uma imagem'}" @update="onUploadFiles"/>
