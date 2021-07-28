@@ -70,6 +70,7 @@ export default {
 							<b-dropdown id="actions-dropdown" :text="trans('themes.actions')" variant="primary">
 								<b-dropdown-item @click="applyTheme(theme.id)">{{trans('themes.apply')}}</b-dropdown-item>
 								<b-dropdown-item :href="baseUrl+'/'+theme.id">{{trans('themes.edit')}}</b-dropdown-item>
+								<b-dropdown-item :href="baseUrl+'/'+theme.id+'/titles'">{{trans('themes.titles')}}</b-dropdown-item>
 								<b-dropdown-item @click="erase(index)">{{trans('themes.delete')}}</b-dropdown-item>
 							</b-dropdown>
 						</td>
