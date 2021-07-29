@@ -40,14 +40,14 @@ export default {
 	components: {
 		BFormInput, ImagePreview
 	},
-	props: ['theme', 'baseUrl'],
+	props: ['theme', 'assetUrl', 'baseUrl'],
 	methods: {
 		onUploadFiles(payload) {
 			this.theme[payload.fieldName] = payload.image;
 		},
 		getUrl(image) {
 			if(image && image != '') {
-				return '/uploads/' + image
+				return this.assetUrl + '/uploads/' + image
 			}
 			return null;
 		},
