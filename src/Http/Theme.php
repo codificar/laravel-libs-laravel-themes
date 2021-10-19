@@ -4,6 +4,8 @@ namespace Codificar\Themes\Http;
 
 use Eloquent;
 use Settings;
+use User;
+use Provider;
 
 class Theme extends Eloquent {
 
@@ -92,6 +94,149 @@ class Theme extends Eloquent {
 
 	public static function getBackgroundUrl($role = 'home'){
 		return self::getBackground($role);
+	}
+
+	/**
+	 * Get is_app_theme_enabled setting
+	 * 
+	 * @return boolean
+	 */
+	public static function getIsAppThemeEnabled()
+	{
+		$setting = Settings::where('key', 'is_app_theme_enabled')->first();
+
+		if ($setting)
+			return $setting->value;
+
+		return 0;
+	}
+
+	/**
+	 * Get app_theme_menu_name setting
+	 * 
+	 * @return string
+	 */
+	public static function getAppThemeMenuName()
+	{
+		$setting = Settings::where('key', 'app_theme_menu_name')->first();
+
+		if ($setting)
+			return $setting->value;
+
+		return '';
+	}
+
+	/**
+	 * Get app_theme_menu_frase setting
+	 * 
+	 * @return string
+	 */
+	public static function getAppThemeMenuFrase()
+	{
+		$setting = Settings::where('key', 'app_theme_menu_frase')->first();
+
+		if ($setting)
+			return $setting->value;
+
+		return '';
+	}
+
+	/**
+	 * Save app theme in app options
+	 * 
+	 * @param object $request
+	 * @return boolean
+	 */
+	public static function saveThemeOptions($request)
+	{
+		try {
+			Settings::updateOrCreate(
+				['key' => 'is_app_theme_enabled'],
+				['key' => 'is_app_theme_enabled', 'value' => $request->is_enabled],
+			);
+
+			Settings::updateOrCreate(
+				['key' => 'app_theme_menu_name'],
+				['key' => 'app_theme_menu_name', 'value' => $request->menu_name],
+			);
+
+			Settings::updateOrCreate(
+				['key' => 'app_theme_menu_frase'],
+				['key' => 'app_theme_menu_frase', 'value' => $request->menu_frase],
+			);
+
+			return true;
+		} catch (\Throwable $th) {
+			\Log::error($th->getMessage());
+			return false;
+		}
+	}
+
+	/**
+	 * Get app themes
+	 * 
+	 * @return Themes
+	 */
+	public static function getAppThemes()
+	{
+		try {
+			$appThemes = self::where('is_visible_in_app', 1)
+				->select('id as theme_id', 'app_image_icon')
+				->get();
+
+			return $appThemes;
+		} catch (\Throwable $th) {
+			\Log::error($th->getMessage());
+			return [];
+		}
+	}
+
+	/**
+	 * Save user theme preference
+	 * 
+	 * @param object $request
+	 * @return boolean
+	 */
+	public static function saveUserAppTheme($request)
+	{
+		try {
+			$user = User::find($request->user_id);
+
+			if ($user) {
+				$user->theme_id = $request->theme_id;
+				$user->save();
+			}
+
+			return true;
+		} catch (\Throwable $th) {
+			\Log::error($th->getMessage());
+			return false;
+		}
+
+	}
+
+	/**
+	 * Save provider theme preference
+	 * 
+	 * @param object $request
+	 * @return boolean
+	 */
+	public static function saveProviderAppTheme($request)
+	{
+		try {
+			$provider = Provider::find($request->provider_id);
+
+			if ($provider) {
+				$provider->theme_id = $request->theme_id;
+				$provider->save();
+			}
+
+			return true;
+		} catch (\Throwable $th) {
+			\Log::error($th->getMessage());
+			return false;
+		}
+
 	}
 }
 ?>

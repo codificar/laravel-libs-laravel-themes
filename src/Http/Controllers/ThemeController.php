@@ -57,6 +57,7 @@ class ThemeController extends Controller
 	{
 
 		$listImages = [
+			['app_image_icon', 'app_image_icon'],
 			['logo', 'logo'],
 			['icon', 'favicon'],
 			['bckSignupHome', 'background_image_home_signup'],

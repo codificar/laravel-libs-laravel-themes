@@ -3,6 +3,7 @@
 //Rota de tema personalizado
 
 use Codificar\Themes\Http\Controllers\ThemeController;
+use Codificar\Themes\Http\Controllers\AppChoiceThemeController;
 
 //Rota de tema personalizado
 Route::get('/css/theme.css', function () {
@@ -32,6 +33,21 @@ Route::group(['prefix' => 'admin/settings', 'middleware' => 'auth.admin'], funct
     Route::delete('/themes', ThemeController::class . '@delete')->name('themeDelete');
     Route::get('/themes/{theme_id}', ThemeController::class . '@show')->name('themeShow');
 });
+
+Route::group(['prefix' => 'api', 'middleware' => 'auth.admin'], function () {
+    Route::get('/themes/settings',  AppChoiceThemeController::class . '@getSettings');
+    Route::post('/themes/settings',  AppChoiceThemeController::class . '@saveSettings');
+});
+
+Route::group(['prefix' => 'api', 'middleware' => 'auth.provider_api:api'], function () {
+    Route::post('/themes/save_provider',  AppChoiceThemeController::class . '@saveAppPreference');
+});
+
+Route::group(['prefix' => 'api', 'middleware' => 'auth.user_api:api'], function () {
+    Route::post('/themes/save_user',  AppChoiceThemeController::class . '@saveAppPreference');
+});
+
+Route::get('/api/application/themes',  AppChoiceThemeController::class . '@getAppThemes');
 
 
 Route::get('/js/lang/theme', function(){

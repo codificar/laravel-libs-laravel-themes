@@ -50,3 +50,10 @@ export default {
 	},
 }
 </script>
+
+<style>
+.image-preview {
+	background-repeat: no-repeat;
+	background-position: center;
+}
+</style>

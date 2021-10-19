@@ -15,6 +15,15 @@ return [
 	'new'				=> 'Novo',
 	'actions'			=> 'Ações',
 	'choose'			=> 'Escolha uma imagem',
-	'save'				=> 'Salvar'
+	'save'				=> 'Salvar',
+	'options'			=> 'Opções',
+	'yes'				=> 'Sim',
+	'no'				=> 'Não',
+	'select_options'	=> 'Premitir seleção de tema nos apps',
+	'menu_name'			=> 'Nome do menu de configurações',
+	'menu_frase'		=> 'Frase tema do menu de configurações',
+	'is_visible_in_app'	=> 'Premitir visualização nos app',
+	'app_image_icon'	=> 'Imagem para usar no app',
+	'success'			=> 'Opção salva com sucesso!'
 
 ];
