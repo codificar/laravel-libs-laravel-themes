@@ -59,10 +59,16 @@ class AppChoiceThemeController extends Controller
     public function getAppThemes()
     {
         $themes = Theme::getAppThemes();
+        $isEnabled = Theme::getIsAppThemeEnabled();
+        $menuName = Theme::getAppThemeMenuName();
+        $menuFrase = Theme::getAppThemeMenuFrase();
 
         return response()->json([
             'success' => true,
-            'url' => url('uploads/'),
+            'url' => url('uploads'),
+            'is_enabled' => $isEnabled,
+            'menu_name' => $menuName,
+            'menu_frase' => $menuFrase,
             'themes' => $themes
         ]);
     }
