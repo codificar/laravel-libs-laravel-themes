@@ -152,17 +152,17 @@ class Theme extends Eloquent {
 		try {
 			Settings::updateOrCreate(
 				['key' => 'is_app_theme_enabled'],
-				['key' => 'is_app_theme_enabled', 'value' => $request->is_enabled],
+				['key' => 'is_app_theme_enabled', 'value' => $request->is_enabled]
 			);
 
 			Settings::updateOrCreate(
 				['key' => 'app_theme_menu_name'],
-				['key' => 'app_theme_menu_name', 'value' => $request->menu_name],
+				['key' => 'app_theme_menu_name', 'value' => $request->menu_name]
 			);
 
 			Settings::updateOrCreate(
 				['key' => 'app_theme_menu_frase'],
-				['key' => 'app_theme_menu_frase', 'value' => $request->menu_frase],
+				['key' => 'app_theme_menu_frase', 'value' => $request->menu_frase]
 			);
 
 			return true;
