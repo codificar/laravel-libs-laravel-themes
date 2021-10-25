@@ -238,5 +238,24 @@ class Theme extends Eloquent {
 		}
 
 	}
+
+	/**
+	 * Get selected theme
+	 * 
+	 * @param object $request
+	 * @return boolean
+	 */
+	public static function getSelectedTheme($token)
+	{
+		$client = User::whereToken($token)->first();
+
+		if (!$client)
+			$client = Provider::whereToken($token)->first();
+
+		if ($client)
+			return $client->theme_id;
+
+		return null;
+	}
 }
 ?>

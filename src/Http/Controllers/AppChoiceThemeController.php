@@ -7,6 +7,7 @@ use Codificar\Themes\Http\Requests\SaveAppPreferenceRequest;
 use Codificar\Themes\Http\Requests\SaveThemeOptionsRequest;
 use Codificar\Themes\Http\Theme;
 use Session;
+use Illuminate\Http\Request;
 
 class AppChoiceThemeController extends Controller
 {
@@ -56,12 +57,13 @@ class AppChoiceThemeController extends Controller
      * @api {GET} /api/application/themes
      * @return json
      */
-    public function getAppThemes()
+    public function getAppThemes(Request $request)
     {
         $themes = Theme::getAppThemes();
         $isEnabled = Theme::getIsAppThemeEnabled();
         $menuName = Theme::getAppThemeMenuName();
         $menuFrase = Theme::getAppThemeMenuFrase();
+        $selected = Theme::getSelectedTheme($request->token);
 
         return response()->json([
             'success' => true,
@@ -69,7 +71,8 @@ class AppChoiceThemeController extends Controller
             'is_enabled' => $isEnabled,
             'menu_name' => $menuName,
             'menu_frase' => $menuFrase,
-            'themes' => $themes
+            'themes' => $themes,
+            'selected_theme' => $selected
         ]);
     }
 
