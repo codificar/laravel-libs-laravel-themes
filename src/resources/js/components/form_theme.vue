@@ -1,6 +1,13 @@
 <template>
 	<form>
 		<input type="hidden" :value="theme.id">
+
+		<div class="row mb-4">
+			<div class="col-md-4">
+				<label for="">{{trans('themes.theme_name')}}</label>
+				<b-form-input type="text" :placeholder="trans('themes.theme_name')" v-model="theme.theme_name"></b-form-input>
+			</div>
+		</div>
 		
 		<div class="row mb-4">
 			<div class="col-md-4">

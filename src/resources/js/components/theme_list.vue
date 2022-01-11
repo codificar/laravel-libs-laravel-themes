@@ -57,6 +57,7 @@ export default {
 				<table class="table">
 					<thead>
 						<th>{{trans('themes.id')}}</th>
+						<th>{{trans('themes.theme_name')}}</th>
 						<th>{{trans('themes.theme_color')}}</th>
 						<th>{{trans('themes.primary_color')}}</th>
 						<th>{{trans('themes.secondary_color')}}</th>
@@ -67,6 +68,7 @@ export default {
 					<tbody>
 						<tr v-for="(theme, index) in themes" :key="theme.id">
 							<td>{{theme.id}}</td>
+							<td>{{theme.theme_name}}</td>
 							<td><color :color="theme.theme_color" />{{theme.theme_color}}</td>
 							<td><color :color="theme.primary_color" />{{theme.primary_color}}</td>
 							<td><color :color="theme.secondary_color" />{{theme.secondary_color}}</td>

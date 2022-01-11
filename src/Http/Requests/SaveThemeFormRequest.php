@@ -23,7 +23,7 @@ class SaveThemeFormRequest extends FormRequest
 
 	public function getColors()
 	{
-		return [ 'theme_color' , 'primary_color', 'secondary_color', 'hover_color', 'active_color', 'is_visible_in_app' ];
+		return [ 'theme_color' , 'primary_color', 'secondary_color', 'hover_color', 'active_color', 'is_visible_in_app', 'theme_name' ];
 	}
 
 	/**

@@ -24,5 +24,6 @@ return [
 	'menu_frase'		=> 'Settings menu theme phrase',
 	'is_visible_in_app'	=> 'Allow preview in app',
 	'app_image_icon'	=> 'Image to use in the app',
-	'success'			=> 'Option saved successfully!'
+	'success'			=> 'Option saved successfully!',
+	'theme_name'		=> 'Theme name'
 ];

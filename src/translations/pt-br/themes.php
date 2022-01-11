@@ -24,6 +24,6 @@ return [
 	'menu_frase'		=> 'Frase tema do menu de configurações',
 	'is_visible_in_app'	=> 'Premitir visualização nos app',
 	'app_image_icon'	=> 'Imagem para usar no app',
-	'success'			=> 'Opção salva com sucesso!'
-
+	'success'			=> 'Opção salva com sucesso!',
+	'theme_name'		=> 'Nome do tema'
 ];
