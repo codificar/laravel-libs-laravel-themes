@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-const webpack = require('webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,16 +11,4 @@ const webpack = require('webpack');
  |
  */
 
-mix.options({})
-	.setPublicPath('public')
-	.js('src/resources/js/app.js', 'public/js')
-	.version()
-	.webpackConfig({
-		resolve: {
-			symlinks: false,
-			alias: {
-				'@': path.resolve(__dirname, 'resources/js/'),
-			},
-		},
-		plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
-	});
+mix.js('src/resources/js/app.vue.js', 'public/js').vue();
