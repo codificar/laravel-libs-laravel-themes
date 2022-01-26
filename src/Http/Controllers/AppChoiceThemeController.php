@@ -8,6 +8,10 @@ use Codificar\Themes\Http\Requests\SaveThemeOptionsRequest;
 use Codificar\Themes\Http\Theme;
 use Session;
 use Illuminate\Http\Request;
+use Settings;
+use Log;
+use Provider;
+use User;
 
 class AppChoiceThemeController extends Controller
 {
@@ -88,8 +92,72 @@ class AppChoiceThemeController extends Controller
             Theme::saveUserAppTheme($request) :
             Theme::saveProviderAppTheme($request);
 
+        if ($request->type == self::PROVIDER && $save && $request->is_register) {
+            $typeClient = Provider::find($request->provider_id);
+
+            if ($typeClient)
+                $this->sendWelcomeEmail($typeClient, self::PROVIDER);
+        } else if ($request->type == self::USER && $save && $request->is_register) {
+            $typeClient = User::find($request->user_id);
+
+            if ($typeClient)
+                $this->sendWelcomeEmail($typeClient, self::USER);
+        }
+
         return response()->json([
             'success' => $save
         ]);
     }
+
+    /**
+	 *
+	 * sentWelcomeEmail
+	 *
+	 * @param object $typeClient
+	 * @return void
+	 */
+	private function sendWelcomeEmail($typeClient, $type) 
+	{
+        try {
+            if ($type == self::PROVIDER) {
+                // Obtém o e-mail do admin
+                $admin_email = Settings::getAdminEmail();
+
+                // Monta a mensagem
+                $pattern = array('admin_email' => $admin_email, 'name' => ucwords($typeClient->first_name . " " . $typeClient->last_name), 'web_url' => web_url());
+
+                // Monta o assunto
+                $subject = trans('providerController.welcome_to') . ucwords(Settings::findByKey('website_title')) . ", " . ucwords($typeClient->first_name . " " . $typeClient->last_name) . '';
+
+                // Envia a notificação por e-mail
+                email_notification($typeClient->id, $type, $pattern, $subject, $type . '_new_register', null);
+            } else if ($type == self::USER) {
+                $is_user_approval_enabled = Settings::getIsUserApprovalEnabled();
+
+                // Configurações de e-mail
+                $admin_email_address = Settings::getAdminEmail();
+                $pattern = array('admin_email' => $admin_email_address, 'name' => ucwords($typeClient->first_name . " " . $typeClient->last_name), 'web_url' => web_url());
+
+                // Verifica se a configuração de aprovação está ativa 
+                if($is_user_approval_enabled)
+                {
+                    // Pega o assunto da mensagem
+                    $subject = trans('user.in_analysis') . " " . ucwords(Settings::findByKey('website_title')) . ", " . ucwords($typeClient->first_name . " " . $typeClient->last_name) . "";
+                    
+                    // Envia e-mail de notificação de usuário em análise
+                    email_notification($typeClient->id, $type, $pattern, $subject, 'user_in_analysis', null);
+                }
+                else {
+                    // Pega o assunto da mensagem
+                    $subject = trans('userRegisterController.welcome_to') . " " . ucwords(Settings::findByKey('website_title')) . ", " . ucwords($typeClient->first_name . " " . $typeClient->last_name) . "";
+                    
+                    // Envia e-mail de notificação de novo usuário
+                    email_notification($typeClient->id, $type, $pattern, $subject, 'user_new_register', null);
+                }
+            }
+            
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+        }
+	}
 }
