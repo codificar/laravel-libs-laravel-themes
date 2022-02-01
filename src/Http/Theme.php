@@ -28,9 +28,10 @@ class Theme extends Eloquent {
 		$logo = '/images/logo.png';
 		if ($theme) {
 			$logo = '/uploads/' . $theme->logo;
-		}
-		if ($logo == '/uploads/') {
-			$logo = '/image/logo.png';
+
+			if(!file_exists(public_path($logo))){
+				$logo = '/images/logo.png';
+			}
 		}
 
 		return $logo;
@@ -39,13 +40,13 @@ class Theme extends Eloquent {
 	public static function getFavicon(){
 		$theme = self::getDefaultTheme();
 
-		$favicon = '/image/favicon.ico';
+		$favicon = '/image/favicon.png';
 		if ($theme) {
 			$favicon = '/uploads/' . $theme->favicon;
-		}
 
-		if ($favicon == '/uploads/') {
-			$favicon = '/image/favicon.ico';
+			if(!file_exists(public_path($favicon))){
+				$logo = '/images/favicon.png';
+			}
 		}
 
 		return $favicon;
@@ -53,34 +54,37 @@ class Theme extends Eloquent {
 
 	public static function getBackground($role){
 		$theme = self::getDefaultTheme();
-		//dd($role);
-
-		$favicon = '/image/background.png';
+		
+		$background = '/image/background.png';
 		if ($theme) {
 			switch($role) {
 				case 'user':
-					$favicon = '/uploads/' . $theme->background_image_user_signup;
+					$background = '/uploads/' . $theme->background_image_user_signup;
 					break;
 				case 'provider':
-					$favicon = '/uploads/' . $theme->background_image_provider_signup;
+					$background = '/uploads/' . $theme->background_image_provider_signup;
 					break;
 				case 'admin':
-					$favicon = '/uploads/' . $theme->background_image_admin_signup;
+					$background = '/uploads/' . $theme->background_image_admin_signup;
 					break;
 				case 'corp':
-					$favicon = '/uploads/' . $theme->background_image_corp_signup;
+					$background = '/uploads/' . $theme->background_image_corp_signup;
 					break;
 				default:
-					$favicon = '/uploads/' . $theme->background_image_home_signup;
+					$background = '/uploads/' . $theme->background_image_home_signup;
 					break;
 			}
 		}
 
-		if ($favicon == '/uploads/') {
-			$favicon = '/image/background.png';
+		if ($background == '/uploads/') {
+			$background = '/image/background.png';
 		}
 
-		return $favicon;
+		if (!file_exists(public_path($background))){
+			$background = '/images/background.png';
+		}
+
+		return $background;
 	}
 
 	#TODO SET Complete URL
