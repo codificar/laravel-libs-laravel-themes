@@ -45,7 +45,7 @@ class Theme extends Eloquent {
 			$favicon = '/uploads/' . $theme->favicon;
 
 			if(!file_exists(public_path($favicon))){
-				$logo = '/images/favicon.png';
+				$favicon = '/images/favicon.png';
 			}
 		}
 
