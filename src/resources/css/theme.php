@@ -1,6 +1,5 @@
 <?php
-	$default_theme_id = \Settings::findByKey('default_theme');
-	$theme = Theme::find($default_theme_id);
+	$theme = \Codificar\Themes\Http\Theme::getDefaultTheme();
 	if($theme) {
 ?>
 
