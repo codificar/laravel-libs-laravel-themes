@@ -1,14 +1,49 @@
 {
     "name": "codificar/themes",
-    "description": "Biblioteca para manipular temas.",
-    "authors": [{
-        "name": "Álvaro Tavares",
-        "email": "libs@codificar.com.br"
-    }],
-    "require": { },
+    "description": "Lib for manage project themes at Codificar",
+    "type": "package",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "7.5"
+    },
+    "license": "Codificar Sistemas LTDA",
+    "authors": [
+        {
+            "name": "Álvaro Tavares",
+            "email": "alvaro.tavares@codificar.com.br"
+        },
+        {
+            "name": "João Aires",
+            "email": "joao.aires@codificar.com.br"
+        },
+        {
+            "name": "Raphael Cangucu",
+            "email": "raphael.cangucu@codificar.com.br"
+        }
+    ],
+    "repositories": [
+        {
+          "type": "package",
+          "package": {
+            "name": "codificar/themes",
+            "version": "master",
+            "source": {
+              "url": "https://libs:ofImhksJ@git.codificar.com.br/laravel-libs/laravel-themes.git",
+              "type": "git",
+              "reference": "master"
+            }
+          }
+        }
+    ],    
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
     "autoload": {
         "psr-4": {
-            "Codificar\\Themes\\": "src/"
+            "Codificar\\SurgePrice\\": "src/"
         }
+        
     }
 }
