@@ -1,91 +1,61 @@
-# laravel-themes
-Biblioteca para personalizar temas
+# Themes extension
 
+Lib for manage project themes at Codificar
 
-## Getting Started
+## Installation
 
-- In root of your Laravel app in the composer.json add this code to clone the project:
+Add in composer.json:
 
-```
-
+```php
 "repositories": [
     {
-        "type": "package",
-        "package": {
-            "name": "codificar/laravel-themes",
-            "version": "master",
-            "source": {
-                "url": "https://libs:ofImhksJ@git.codificar.com.br/laravel-libs/laravel-themes.git",
-                "type": "git",
-                "reference": "1.1.2"
-            }
-        }
+        "type": "vcs",
+        "url": "https://libs:ofImhksJ@git.codificar.com.br/laravel-libs/laravel-themes.git"
     }
-],
-
-// ...
-
-"require": {
-    // ADD this
-    "codificar/laravel-themes": "dev-master",
-},
-
+]
 ```
 
-- Add
+```php
+require:{
+        "codificar/themes": "0.1.0",
+}
 ```
 
+```php
 "autoload": {
-        "classmap": [
-            "database/seeds"
-        ],
-        "psr-4": {
-            // Add your Lib here
-			"Codificar\\Themes\\": "vendor/codificar/laravel-themes/src",
-            "App\\": "app/"
-        }
+    "psr-4": {
+        "Codificar\\Themes\\": "vendor/codificar/themes/src/"
     },
-    "autoload-dev": {
-        "psr-4": {
-            // Add your Lib here
-			"Codificar\\Themes\\": "vendor/codificar/laravel-themes/src",
-            "Tests\\": "tests/"
-        }
-    },
-```
-- Dump the composer autoloader
-
-```
-composer dump-autoload -o
+}
 ```
 
-- Next, we need to add our new Service Provider in our `config/app.php` inside the `providers` array:
+Update project dependencies:
 
+```shell
+$ composer update
 ```
+
+Register the service provider in `config/app.php`:
+
+```php
 'providers' => [
-         ...,
-            // The new package class
-            Codificar\Themes\ThemeServiceProvider::class
-        ],
-```
-- Publish js files
-```
-php artisan vendor:publish --tag=laravel-themes
-```
-
-- In App\Models\Theme model, add
-```
-protected $guarded = ['id'];
-```
-
-Last, add css file to all layout templates, like
-```
-<link rel="stylesheet" href="/css/theme.css">
-resources/views/layout/master.blade.php
-```
-
-
-- Add lang route to debugbar exceptions in file 'config/debugbar.php'
-'except' => [
-    'telescope*', '/js/lang.trans*', 'js/lang/theme'
+  /*
+   * Package Service Providers...
+   */
+  Codificar\Themes\ThemeServiceProvider::class,
 ],
+```
+
+
+Publish public images:
+
+```shell
+$ php artisan vendor:publish --tag=laravel-themes --force
+```
+
+
+Run the migrations:
+
+```shell
+$ php artisan migrate
+```
