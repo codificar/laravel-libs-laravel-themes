@@ -261,5 +261,12 @@ class Theme extends Eloquent {
 
 		return null;
 	}
+
+	public static function getThemesForFilter()
+	{
+		return self::where('is_visible_in_app', 1)
+			->select('id', 'theme_color', 'app_image_icon', 'theme_name')
+			->get();
+	}
 }
 ?>
