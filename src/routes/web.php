@@ -5,25 +5,7 @@
 use Codificar\Themes\Http\Controllers\ThemeController;
 use Codificar\Themes\Http\Controllers\AppChoiceThemeController;
 
-//Rota de tema personalizado
-Route::get('/css/theme.css', function () {
 
-    header('Content-Type: text/css');
-
-    require __DIR__ . '/../resources/css/theme.php';
-
-    exit();
-});
-
-//Rota de tema personalizado da área pública
-Route::get('/css/public.css', function () {
-
-    header('Content-Type: text/css');
-
-    require __DIR__ . '/../resources/css/public.php';
-
-    exit();
-});
 
 Route::group(['prefix' => 'admin/settings', 'middleware' => 'auth.admin'], function () {
     Route::get('/themes', ThemeController::class . '@index')->name('themeIndex');
@@ -49,10 +31,28 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth.user_api:api'], function 
 
 Route::get('/api/application/themes',  AppChoiceThemeController::class . '@getAppThemes');
 
+//Rota de tema personalizado
+Route::get('/css/theme.css', function () {
+
+    $css = require __DIR__ . '/../resources/css/theme.php';
+
+    return response($css)
+            ->header('Content-Type', 'text/css');
+});
+
+//Rota de tema personalizado da área pública
+Route::get('/css/public.css', function () {
+
+    $css = require __DIR__ . '/../resources/css/public.php';
+
+    return response($css)
+            ->header('Content-Type', 'text/css');
+});
 
 Route::get('/js/lang/theme', function(){
-    header('Content-Type: text/javascript');
+
     $theme = require __DIR__ . '/../translations/'.config('app.locale').'/themes.php';
-    return ('window.lang.themes = ' . json_encode($theme) . ';');
-    exit();
+
+    return response('window.lang.themes = ' . json_encode($theme) . ';')
+            ->header('Content-Type', 'text/javascript');
 });
