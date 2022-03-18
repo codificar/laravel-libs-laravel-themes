@@ -40,7 +40,7 @@ class Theme extends Eloquent {
 	public static function getFavicon(){
 		$theme = self::getDefaultTheme();
 
-		$favicon = '/image/favicon.png';
+		$favicon = '/images/favicon.png';
 		if ($theme) {
 			$favicon = '/uploads/' . $theme->favicon;
 
@@ -55,7 +55,7 @@ class Theme extends Eloquent {
 	public static function getBackground($role){
 		$theme = self::getDefaultTheme();
 		
-		$background = '/image/background.png';
+		$background = '/images/background.png';
 		if ($theme) {
 			switch($role) {
 				case 'user':
@@ -77,7 +77,7 @@ class Theme extends Eloquent {
 		}
 
 		if ($background == '/uploads/') {
-			$background = '/image/background.png';
+			$background = '/images/background.png';
 		}
 
 		if (!file_exists(public_path($background))){
