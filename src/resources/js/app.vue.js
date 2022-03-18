@@ -4,6 +4,9 @@ require('lodash');
 
 import Vue from 'vue';
 
+import BootstrapVue from 'bootstrap-vue';
+Vue.use(BootstrapVue);
+
 import ThemeList from './components/theme_list.vue';
 import FormTheme from './components/form_theme.vue';
 

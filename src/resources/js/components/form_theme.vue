@@ -130,7 +130,11 @@ export default {
 					'Content-Type': 'multipart/form-data'
 				}
 			} ).then(response => {
-				document.location.href = '.';
+				this.saving = false;
+
+				if (response.status == 200) {
+					document.location.href = '.';
+				}
 			}).catch(err => {
 				this.saving = false;
 				console.log(err)
