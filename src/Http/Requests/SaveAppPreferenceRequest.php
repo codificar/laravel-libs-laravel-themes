@@ -44,7 +44,7 @@ class SaveAppPreferenceRequest extends FormRequest
 				'success' => false,
 				'errors' => $validator->errors()->all(),
 				'error_code' => \ApiErrors::REQUEST_FAILED
-			])
+			],\ApiErrors::REQUEST_FAILED)
 		);
 	}
 }
