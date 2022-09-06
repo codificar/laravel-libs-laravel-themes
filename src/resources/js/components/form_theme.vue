@@ -138,6 +138,7 @@ export default {
 					document.location.href = '.';
 				}
 			}).catch(err => {
+				this.saving = false;
 				this.$swal({
 				title: this.trans("themes.error"),
 				html:'',
