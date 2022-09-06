@@ -138,13 +138,11 @@ export default {
 					document.location.href = '.';
 				}
 			}).catch(err => {
-				this.saving = false;
-				console.log('aqui')
 				this.$swal({
-				title: this.trans("Preencha todos os campos para finalizar a alteração"),
-				html: '',
+				title: this.trans("themes.error"),
+				html:'',
 				type: "error"
-			}).then(result => {});
+				});
 			})
 		}
 	}

@@ -25,5 +25,6 @@ return [
 	'is_visible_in_app'	=> 'Premitir visualização nos app',
 	'app_image_icon'	=> 'Imagem para usar no app',
 	'success'			=> 'Opção salva com sucesso!',
-	'theme_name'		=> 'Nome do tema'
+	'theme_name'		=> 'Nome do tema',
+	'error'	 => 'Preencha todas as cores para finalizar a edição !',
 ];
