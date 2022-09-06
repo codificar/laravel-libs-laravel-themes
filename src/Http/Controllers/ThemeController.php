@@ -88,6 +88,7 @@ class ThemeController extends Controller
 			$request->theme->fill($request->only($request->getColors()));
 			//$request->theme->save();
 			$this->saveImages($request->theme);
+			
 		} else {
 			$theme = Theme::create($request->only($request->getColors()));
 			$this->saveImages($theme);

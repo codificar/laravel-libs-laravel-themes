@@ -91,9 +91,12 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import { BFormInput, BFormSelect, BFormSelectOption } from "bootstrap-vue";
 import axios from 'axios';
 import ImagePreview from "./image_preview.vue";
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
 export default {
 	data() {
 		return {
@@ -120,7 +123,6 @@ export default {
 		saveTheme() {
 			this.saving = true;
 			let formData = new FormData();
-
 			for(let index in this.theme) {
 				formData.append(index, this.theme[index]);
 			}
@@ -137,7 +139,11 @@ export default {
 				}
 			}).catch(err => {
 				this.saving = false;
-				console.log(err)
+				this.$swal({
+				title: this.trans("themes.error"),
+				html:'',
+				type: "error"
+				});
 			})
 		}
 	}
