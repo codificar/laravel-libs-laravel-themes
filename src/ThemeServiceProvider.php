@@ -17,6 +17,11 @@ class ThemeServiceProvider extends ServiceProvider {
 		$this->publishes([
 			__DIR__ . '/../public' => public_path('vendor/codificar/laravel-themes'),
 		], 'laravel-themes');
+
+        // Publish the tests files 
+        $this->publishes([
+            __DIR__ . '/../tests/' => base_path('tests/Unit/libs/themes'),
+        ], 'publishes_tests');
 	}
 
 	public function register()
